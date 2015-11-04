@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+
+<script type="text/javascript">
+function getBase64Image(img) {
+var canvas = document.createElement("canvas");
+canvas.width = img.width;
+canvas.height = img.height;
+
+var ctx = canvas.getContext("2d");
+ctx.drawImage(img, 0, 0, img.width, img.height);
+
+var dataURL = canvas.toDataURL("image/jpg");
+return dataURL
+
+// return dataURL.replace("data:image/png;base64,", "");
+}
+
+function main() {
+var img = document.createElement('img');
+img.src = 'sha.jpg';
+img.onload =function() {
+var data = getBase64Image(img);
+console.log(data);
+}
+
+document.body.appendChild(img);
+}
+
+main()
+
+</script>
+
+</body>
+</html>
