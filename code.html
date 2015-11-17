@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+	<title>
+		canvas coding
+	</title>
+	<style type="text/css">
+	#org{
+		display: inline-block;
+	}
+	#des{
+		display: inline-block;
+	}
+	</style>
+</head>
+<body>
+<div id="org">
+		<canvas width="400"  height="300" id="canvas1"></canvas>
+</div>
+<span>
+<input type="text" placeholder="请输入" id="in"/>
+<button onclick="draw();" type="submit">转化</button>
+</span>
+<div id="des">
+		<canvas width="400" height="300" id="canvas2"></canvas>
+</div>
+<script type="text/javascript">
+			var orgarr = [];
+			var desarr = [];
+			var j=0;
+			var canvas1 = document.getElementById('canvas1');
+            var ctx1 = canvas1.getContext('2d');
+            image = new Image();
+            image.src = "sha.jpg"
+            image.onload=function(){
+                ctx1.drawImage(image,0,0,canvas1.clientWidth,canvas1.clientHeight);
+            }
+            function draw(){
+            	var str = document.getElementById('in').value;
+            	
+                var canvas2 = document.getElementById('canvas2');
+                var ctx2 = canvas2.getContext('2d');
+                var imageData = ctx1.getImageData(0,0,canvas1.clientWidth,canvas1.clientHeight);
+                for(var i=0;i<imageData.length;i+=4){
+                	imageData.data[i] = imageData%2 ? imageData : imageData+parseInt(str[j++]);
+                	imageData.data[i+1] = imageData%2 ? imageData : imageData+parseInt(str[j++]);
+                	imageData.data[i+2] = imageData%2 ? imageData : imageData+parseInt(str[j++]);
+                	imageData.data[i+3] = imageData%2 ? imageData : imageData+parseInt(str[j++]);
+                }
+                ctx2.putImageData(imageData,0,0);
+            }
+</script>
+</body>
+</html>
