@@ -1,6 +1,6 @@
 
 function test(str){
-	str;st
+	str;s
 
 }
 test
