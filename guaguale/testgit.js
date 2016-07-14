@@ -1,5 +1,5 @@
 
-function teste(str){
+function test(str){
 	strsfefe
 
 }
