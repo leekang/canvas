@@ -1,4 +1,4 @@
-function test(str){
-	str
+function tfest(str){
+	strsfefef
 }
 test
