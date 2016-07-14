@@ -1,4 +1,4 @@
 function test(str){
-	str
+	str;str
 }
 test
