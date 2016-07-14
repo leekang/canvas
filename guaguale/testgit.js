@@ -4,3 +4,6 @@ function test(str){
 
 }
 test
+function try(){
+	
+}
